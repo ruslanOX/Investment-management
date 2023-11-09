@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=0.67.4.0", "Cython>=0.29.33", "cymem>=2.0.6"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "investment-management"
+description = "investment-management package"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "GPL-3.0-or-later" }
+keywords = ["MIDI", "Sequencer", "FM synthesizer", "asyncio", "Monome"]
+authors = [{ name = "Łukasz Langa", email = "lukasz@langa.pl" }]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Topic :: Multimedia :: Sound/Audio",
+    "Topic :: Multimedia :: Sound/Audio :: MIDI",
+    "Topic :: Multimedia :: Sound/Audio :: Mixers",
+    "Topic :: Multimedia :: Sound/Audio :: Sound Synthesis",
+    "Topic :: System :: Hardware :: Universal Serial Bus (USB) :: Audio",
+    "Topic :: Utilities",
+    "Typing :: Typed",
+]
+dependencies = [
+    "pandas==0.15.2",
+]
+dynamic = ["version"]
+
+[project.urls]
+Documentation = "https://github.com/OX-Security-Demo/Investment-management#readme"
+Issues = "https://github.com/OX-Security-Demo/Investment-management/issues"
+Source = "https://github.com/OX-Security-Demo/Investment-management"
+
+[project.optional-dependencies]
+dev = ["black", "mypy", "pytest", "ruff"]
+
+[tool.setuptools.dynamic]
+version = { attr = "aiotone.__version__" }
+
+[tool.setuptools]
+packages = ["investment-management"]
+py-modules = ["build"]
