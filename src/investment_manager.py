@@ -7,7 +7,7 @@ class InvestmentManager:
 
     def get_all_investments(self):
         investments = []
-        for i in range(len(self.investment_data)):
+        for i in range(3):
             # Simulated SAST issue: Accessing an index without bounds checking.
             # This could lead to an IndexError and is vulnerable.
             item = self.get_investment_by_index(i)
