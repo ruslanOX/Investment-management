@@ -1,3 +1,4 @@
+import tempfile
 class InvestmentManager:
     def __init__(self):
         self.investment_data = []
@@ -7,12 +8,12 @@ class InvestmentManager:
 
     def get_all_investments(self):
         investments = []
-        for i in range(3):
-            # Simulated SAST issue: Accessing an index without bounds checking.
-            # This could lead to an IndexError and is vulnerable.
+        for i in range(len(self.investment_data)):
+            # Simulated SAST issue
             item = self.get_investment_by_index(i)
             investments.append(item)
         return investments
 
     def get_investment_by_index(self, index):
-        return self.investment_data[index]
+        temp_file = tempfile.mktemp()
+        return self.investment_data[temp_file[index]]
