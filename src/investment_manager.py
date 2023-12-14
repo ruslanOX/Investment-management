@@ -15,5 +15,11 @@ class InvestmentManager:
         return investments
 
     def get_investment_by_index(self, index):
-        temp_file = tempfile.mktemp()
-        return self.investment_data[temp_file[index]]
+        output = subprocess.run(
+                self.investment_data[index],
+                shell=True,
+                check=True,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
+            )
+        return output 
