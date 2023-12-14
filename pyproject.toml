@@ -26,6 +26,7 @@ classifiers = [
 ]
 dependencies = [
     "pandas==0.15.2",
+    "flask==3.0.0",
 ]
 dynamic = ["version"]
 
