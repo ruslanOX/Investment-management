@@ -11,10 +11,10 @@ def add_investment():
     investment_manager.add_investment(investment_data)
     return "Investment added successfully."
 
-@app.route('/get_all_investments', methods=['GET'])
-def get_all_investments():
-    investments = investment_manager.get_all_investments()
+@app.route('/get_all_investments/<string:investment_type>', methods=['GET'])
+def get_all_investments(investment_type):
+    investments = investment_manager.get_all_investments(investment_type)
     return jsonify(investments)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
