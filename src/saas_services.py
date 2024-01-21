@@ -5,7 +5,7 @@ saas_services = [
         'users': 10000,
         'pricing_model': 'Subscription',
         'Description': 'This application uses Jira',
-        'Domain': 'www.atlassian.com/software/jira',
+        'Domain': 'www.atlassian.net/software/jira',
     },
     {
         'name': 'Slack',
@@ -13,7 +13,7 @@ saas_services = [
         'users': 500000,
         'pricing_model': 'Freemium',
         'Description': 'This application uses Slack',
-        'Domain': 'slack.com',
+        'Domain': 'api.slack.com',
     },
     {
         'name': 'Airtable',
@@ -32,12 +32,12 @@ saas_services = [
         'Domain': 'mailchimp.com',
     },
     {
-        'name': 'Zendesk',
-        'category': 'Customer Support',
+        'name': 'Dropbox',
+        'category': 'File Hosting',
         'users': 30000,
         'pricing_model': 'Subscription',
-        'Description': 'This application uses Zendesk',
-        'Domain': 'www.zendesk.com',
+        'Description': 'This application uses Dropbox',
+        'Domain': 'www.dropbox.com',
     }
 ]
 
