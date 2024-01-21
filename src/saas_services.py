@@ -5,6 +5,7 @@ saas_services = [
         'users': 10000,
         'pricing_model': 'Subscription',
         'Description': 'This application uses Jira',
+        'Domain': 'www.atlassian.com/software/jira',
     },
     {
         'name': 'Slack',
@@ -12,6 +13,7 @@ saas_services = [
         'users': 500000,
         'pricing_model': 'Freemium',
         'Description': 'This application uses Slack',
+        'Domain': 'slack.com',
     },
     {
         'name': 'Airtable',
@@ -19,6 +21,7 @@ saas_services = [
         'users': 200000,
         'pricing_model': 'Subscription',
         'Description': 'This application uses Airtable',
+        'Domain': 'www.airtable.com',
     },
     {
         'name': 'Mailchimp',
@@ -26,6 +29,7 @@ saas_services = [
         'users': 150000,
         'pricing_model': 'Subscription',
         'Description': 'This application uses Mailchimp',
+        'Domain': 'mailchimp.com',
     },
     {
         'name': 'Zendesk',
@@ -33,6 +37,7 @@ saas_services = [
         'users': 30000,
         'pricing_model': 'Subscription',
         'Description': 'This application uses Zendesk',
+        'Domain': 'www.zendesk.com',
     }
 ]
 
@@ -42,3 +47,4 @@ print("Category:", saas_services[0]['category'])
 print("Users:", saas_services[0]['users'])
 print("Pricing Model:", saas_services[0]['pricing_model'])
 print("Description:", saas_services[0]['Description'])
+print("Domain:", saas_services[0]['Domain'])
