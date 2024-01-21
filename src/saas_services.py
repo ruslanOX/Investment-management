@@ -4,7 +4,7 @@ saas_services = [
         'category': 'Project Management',
         'users': 10000,
         'pricing_model': 'Subscription',
-        'Description': 'This application uses Jira',
+        'Description': 'This application uses JiraApi',
         'Domain': 'www.atlassian.net/software/jira',
     },
     {
@@ -12,7 +12,7 @@ saas_services = [
         'category': 'Team Collaboration',
         'users': 500000,
         'pricing_model': 'Freemium',
-        'Description': 'This application uses Slack',
+        'Description': 'This application uses slack_sdk',
         'Domain': 'api.slack.com',
     },
     {
