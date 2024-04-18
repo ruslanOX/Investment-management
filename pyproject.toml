@@ -28,6 +28,7 @@ dependencies = [
     "pandas==0.15.2",
     "flask==3.0.0",
     "pytest-cov==5.0.0",
+    "opsgenie_sdk==2.1.5",
 ]
 dynamic = ["version"]
 
