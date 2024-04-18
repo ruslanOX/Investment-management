@@ -1,3 +1,9 @@
+from jira import JIRA
+import os
+from openai import OpenAI
+import requests
+from pyairtable import Api
+
 saas_services = [
     {
         'name': 'Jira',
@@ -48,3 +54,33 @@ print("Users:", saas_services[0]['users'])
 print("Pricing Model:", saas_services[0]['pricing_model'])
 print("Description:", saas_services[0]['Description'])
 print("Domain:", saas_services[0]['Domain'])
+
+jira = JIRA('https://jira.atlassian.com')
+
+issue = jira.issue('JRA-9')
+print(issue.fields.issuetype.name)         # 'New Feature'
+print(issue.fields.reporter.displayName)   # 'Mike Cannon-Brookes [Atlassian]'
+
+client = OpenAI(
+    # This is the default and can be omitted
+    api_key=os.environ.get("OPENAI_API_KEY"),
+)
+
+chat_completion = client.chat.completions.create(
+    messages=[
+        {
+            "role": "user",
+            "content": "Say this is a test",
+        }
+    ],
+    model="gpt-3.5-turbo",
+)
+
+def login(request):
+        token = os.getenv("HUBSPOT_API_TOKEN")
+        response = requests.get("{0}/{1}".format("https://api.hubapi.com/oauth/v1/access-tokens", token))
+        return response.json()
+
+api = Api(os.environ['AIRTABLE_API_KEY'])
+table = api.table('appExampleBaseId', 'tblExampleTableId')
+table.all()
