@@ -1,3 +1,10 @@
+from jira import JIRA
+import os
+from openai import OpenAI
+import requests
+from pyairtable import Api
+import json
+
 saas_services = [
     {
         'name': 'Jira',
@@ -48,3 +55,66 @@ print("Users:", saas_services[0]['users'])
 print("Pricing Model:", saas_services[0]['pricing_model'])
 print("Description:", saas_services[0]['Description'])
 print("Domain:", saas_services[0]['Domain'])
+
+jira = JIRA('https://jira.atlassian.com')
+
+issue = jira.issue('JRA-9')
+print(issue.fields.issuetype.name)         # 'New Feature'
+print(issue.fields.reporter.displayName)   # 'Mike Cannon-Brookes [Atlassian]'
+
+client = OpenAI(
+    # This is the default and can be omitted
+    api_key=os.environ.get("OPENAI_API_KEY"),
+)
+
+chat_completion = client.chat.completions.create(
+    messages=[
+        {
+            "role": "user",
+            "content": "Say this is a test",
+        }
+    ],
+    model="gpt-3.5-turbo",
+)
+
+def login(request):
+        token = os.getenv("HUBSPOT_API_TOKEN")
+        response = requests.get("{0}/{1}".format("https://api.hubapi.com/oauth/v1/access-tokens", token))
+        return response.json()
+
+api = Api(os.environ['AIRTABLE_API_KEY'])
+table = api.table('appExampleBaseId', 'tblExampleTableId')
+table.all()
+
+bearer_token = os.environ.get("BEARER_TOKEN")
+
+def create_url():
+    # Replace with user ID below
+    user_id = 2244994945
+    return "https://api.twitter.com/2/users/{}/followers".format(user_id)
+
+
+def get_params():
+    return {"user.fields": "created_at"}
+
+
+def bearer_oauth(r):
+    """
+    Method required by bearer token authentication.
+    """
+
+    r.headers["Authorization"] = f"Bearer {bearer_token}"
+    r.headers["User-Agent"] = "v2FollowersLookupPython"
+    return r
+
+
+def connect_to_endpoint(url, params):
+    response = requests.request("GET", url, auth=bearer_oauth, params=params)
+    print(response.status_code)
+    if response.status_code != 200:
+        raise Exception(
+            "Request returned an error: {} {}".format(
+                response.status_code, response.text
+            )
+        )
+    return response.json()
