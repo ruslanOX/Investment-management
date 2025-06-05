@@ -2,7 +2,6 @@ from collections import defaultdict
 import json
 import requests
 
-CODECOV_ENDPOINT = "https://codecov.io/api/v2/github/codecov/{}"
 TOKEN_NAME = "{{ ACCESS TOKEN }}"
 CODECOV_HEADERS = {
     'Authorization': 'bearer {}'.format(TOKEN_NAME)
