@@ -3,6 +3,7 @@ from datadog_api_client.v1.api.monitors_api import MonitorsApi
 from datadog_api_client.v1.model.monitor import Monitor
 from datadog_api_client.v1.model.monitor_type import MonitorType
 
+token = os.getenv("HUBSPOT_API_TOKEN")
 body = Monitor(
     name="example",
     type=MonitorType("log alert"),
