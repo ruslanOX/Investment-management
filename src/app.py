@@ -1,5 +1,7 @@
 from flask import Flask, jsonify, request
 from investment_manager import InvestmentManager
+from pyairtable import Api
+
 
 app = Flask(__name__)
 
